@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Roboto&family=Varela+Round&family=Open+Sans&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Information Lookup</title>
+    <meta name="description" content="WDD 330 - Web Frontend Development 2 - Eric Arndt - Final Project - City Information Lookup">
+    <meta name="author" content="Eric Arndt">
+    <link rel="preload" href="/styles/cities.css" as="style">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="WDD 330 - Web Frontend Development 2 - Eric Arndt - Final Project - City Information Lookup">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://e-arndt.github.io/wdd330/FinalProject/images/city-skyline-site-image.png">
+    <meta property="og:url" content="https://e-arndt.github.io/wdd330/FinalProject/index.html">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+  </head>
+
+  <body>
+    <header class="divider" id="main-header"></header>
+    <main class="divider">
+      <div class="hero">
+        <img
+          src="/images/banner-sm.jpg"
+          srcset="images/banner-sm.jpg 500w, images/banner.jpg"
+          alt="image of a high mountain lake"
+        />
+        <div class="logo logo--square">
+          <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
+          <div>Sleep<span class="highlight">Outside</span></div>
+        </div>
+        <div class="mission">
+          <p>
+            Our mission is to provide you with everything you need to sleep
+            outside comfortably at an affordable price.
+          </p>
+        </div>
+      </div>
+      <div id="product-categories">
+        <a href="/product_listing/index.html?category=tents"
+          ><img
+            src="/images/category-tents.svg"
+            alt="Tent icon"
+            width="100"
+            height="100"
+          />
+          <h3>Tents</h3></a
+        >
+        <a href="/product_listing/index.html?category=backpacks"
+          ><img
+            src="/images/category-backpacks.svg"
+            alt="Backpack icon"
+            width="100"
+            height="100"
+          />
+          <h3>Backpacks</h3></a
+        >
+        <a href="/product_listing/index.html?category=sleeping-bags"
+          ><img
+            src="/images/category-sleepingbags.svg"
+            alt="Sleeping Bag icon"
+            width="100"
+            height="100"
+          />
+          <h3>Sleeping Bags</h3></a
+        >
+        <a href="/product_listing/index.html?category=hammocks"
+          ><img
+            src="/images/category-hammocks.svg"
+            alt="Sleeping Bag icon"
+            width="100"
+            height="100"
+          />
+          <h3>Hammocks</h3></a
+        >
+      </div>
+      <div id="newsletter">
+        <form action="thankyou.html" method="get">
+          <h2>Join our newsletter!</h2>
+          <label
+            >First name<span class="required">*</span>
+            <input
+              class="fname"
+              name="fname"
+              type="text"
+              autocomplete="given-name"
+              title="Please enter your first name."
+              required
+            />
+          </label>
+          <label
+            >Last name<span class="required">*</span>
+            <input
+              class="lname"
+              name="lname"
+              type="text"
+              autocomplete="family-name"
+              title="Please enter your last name."
+              required
+            />
+          </label>
+          <label
+            >Email<span class="required">*</span>
+            <input
+              class="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              title="Please enter a valid email address."
+              required
+            />
+          </label>
+          <button class="submit" name="submit" type="submit">Sign up</button>
+        </form>
+      </div>
+    </main>
+    <footer id="footer"></footer>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
