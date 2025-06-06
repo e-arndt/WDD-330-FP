@@ -69,9 +69,120 @@ body {
 
 #main-header:hover {
     background-color: var(--secondary-color);
-    border-bottom: 3px solid #333;
 }
 
+
+.city-select {
+    width: 100%; /* Same width as #main-header */
+    display: flex; /* Ensure boxes align in a row */
+    justify-content: space-between; /* Keep spacing even */
+    gap: 1px;
+}
+
+.city-select .box {
+    flex: 1; /* Make both boxes equal width */
+    background-color: var(--secondary-color);
+    padding: 20px;
+    text-align: center;
+    border: 1px solid var(--dark-color);
+    border-radius: 10px;
+}
+
+.box h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--light-color);
+    text-shadow: 2.5px 2.5px 5px black;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.box label {
+    font-size: 22px;
+    color: var(--light-color);
+    display: block;
+    margin-bottom: 5px;
+    text-shadow: 2.5px 2.5px 5px black;
+}
+
+.box select {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid var(--dark-color);
+    background-color: var(--light-color);
+}
+
+.input-container {
+    display: flex; /* Places inputs side by side */
+    gap: 10px; /* Adds space between input fields */
+    width: 100%;
+    padding-bottom: 1.5rem;
+}
+
+.input-wrapper {
+    flex: 1; /* Makes each input take equal space */
+    display: flex;
+    flex-direction: column; /* Keeps labels above inputs */
+}
+
+.input-wrapper label {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.input-wrapper select,
+.input-wrapper input {
+    width: 75%;
+    padding: 10px;
+    font-size: 20px;
+    color: var(--light-color);
+    border-radius: 25px;
+    border: 1px solid var(--dark-color);
+    background-color: var(--tertiary-color);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Specific styling for search inputs */
+#search-start-city,
+#search-end-city {
+    width: 75%;
+    padding: 10px;
+    font-size: 20px;
+    color: var(--light-color);
+    border-radius: 25px;
+    border: 1px solid var(--dark-color);
+    background-color: var(--tertiary-color);
+}
+
+#search-start-city::placeholder,
+#search-end-city::placeholder {
+    color: var(--light-color);
+    opacity: 1;
+}
+
+.box button {
+    width: 35%;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 25px;
+    border: 1px solid var(--dark-color);
+    background-color: var(--tertiary-color);
+    color: var(--light-color);
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.box button:hover {
+    background-color: var(--primary-color);
+}
 
 #footer {
     width: 100%;

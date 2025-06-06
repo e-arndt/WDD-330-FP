@@ -1,0 +1,408 @@
+{
+    "popularCities": {
+        "USA": [
+            {
+                "city": "New York",
+                "country": "United States"
+            },
+            {
+                "city": "Los Angeles",
+                "country": "United States"
+            },
+            {
+                "city": "Chicago",
+                "country": "United States"
+            },
+            {
+                "city": "Houston",
+                "country": "United States"
+            },
+            {
+                "city": "Phoenix",
+                "country": "United States"
+            },
+            {
+                "city": "Philadelphia",
+                "country": "United States"
+            },
+            {
+                "city": "San Antonio",
+                "country": "United States"
+            },
+            {
+                "city": "San Diego",
+                "country": "United States"
+            },
+            {
+                "city": "Dallas",
+                "country": "United States"
+            },
+            {
+                "city": "San Jose",
+                "country": "United States"
+            },
+            {
+                "city": "Austin",
+                "country": "United States"
+            },
+            {
+                "city": "Jacksonville",
+                "country": "United States"
+            },
+            {
+                "city": "Fort Worth",
+                "country": "United States"
+            },
+            {
+                "city": "Columbus",
+                "country": "United States"
+            },
+            {
+                "city": "Charlotte",
+                "country": "United States"
+            },
+            {
+                "city": "San Francisco",
+                "country": "United States"
+            },
+            {
+                "city": "Indianapolis",
+                "country": "United States"
+            },
+            {
+                "city": "Seattle",
+                "country": "United States"
+            },
+            {
+                "city": "Denver",
+                "country": "United States"
+            },
+            {
+                "city": "Washington D.C.",
+                "country": "United States"
+            },
+            {
+                "city": "Boston",
+                "country": "United States"
+            },
+            {
+                "city": "El Paso",
+                "country": "United States"
+            },
+            {
+                "city": "Nashville",
+                "country": "United States"
+            },
+            {
+                "city": "Detroit",
+                "country": "United States"
+            },
+            {
+                "city": "Memphis",
+                "country": "United States"
+            },
+            {
+                "city": "Las Vegas",
+                "country": "United States"
+            },
+            {
+                "city": "Louisville",
+                "country": "United States"
+            },
+            {
+                "city": "Portland",
+                "country": "United States"
+            },
+            {
+                "city": "Oklahoma City",
+                "country": "United States"
+            },
+            {
+                "city": "Milwaukee",
+                "country": "United States"
+            },
+            {
+                "city": "Albuquerque",
+                "country": "United States"
+            },
+            {
+                "city": "Tucson",
+                "country": "United States"
+            },
+            {
+                "city": "Fresno",
+                "country": "United States"
+            },
+            {
+                "city": "Sacramento",
+                "country": "United States"
+            },
+            {
+                "city": "Kansas City",
+                "country": "United States"
+            }
+        ],
+        "International": [
+            {
+                "city": "London",
+                "country": "United Kingdom"
+            },
+            {
+                "city": "Tokyo",
+                "country": "Japan"
+            },
+            {
+                "city": "Paris",
+                "country": "France"
+            },
+            {
+                "city": "Shanghai",
+                "country": "China"
+            },
+            {
+                "city": "Moscow",
+                "country": "Russia"
+            },
+            {
+                "city": "Dubai",
+                "country": "United Arab Emirates"
+            },
+            {
+                "city": "Singapore",
+                "country": "Singapore"
+            },
+            {
+                "city": "Sydney",
+                "country": "Australia"
+            },
+            {
+                "city": "Toronto",
+                "country": "Canada"
+            },
+            {
+                "city": "Berlin",
+                "country": "Germany"
+            },
+            {
+                "city": "Mexico City",
+                "country": "Mexico"
+            },
+            {
+                "city": "Barcelona",
+                "country": "Spain"
+            },
+            {
+                "city": "Mumbai",
+                "country": "India"
+            },
+            {
+                "city": "Rome",
+                "country": "Italy"
+            },
+            {
+                "city": "Beijing",
+                "country": "China"
+            },
+            {
+                "city": "Bangkok",
+                "country": "Thailand"
+            },
+            {
+                "city": "Istanbul",
+                "country": "Turkey"
+            },
+            {
+                "city": "Hong Kong",
+                "country": "China"
+            },
+            {
+                "city": "São Paulo",
+                "country": "Brazil"
+            },
+            {
+                "city": "Seoul",
+                "country": "South Korea"
+            },
+            {
+                "city": "Buenos Aires",
+                "country": "Argentina"
+            },
+            {
+                "city": "Cairo",
+                "country": "Egypt"
+            },
+            {
+                "city": "Jakarta",
+                "country": "Indonesia"
+            },
+            {
+                "city": "Kuala Lumpur",
+                "country": "Malaysia"
+            },
+            {
+                "city": "Johannesburg",
+                "country": "South Africa"
+            },
+            {
+                "city": "Madrid",
+                "country": "Spain"
+            },
+            {
+                "city": "Dublin",
+                "country": "Ireland"
+            },
+            {
+                "city": "Copenhagen",
+                "country": "Denmark"
+            },
+            {
+                "city": "Hanoi",
+                "country": "Vietnam"
+            },
+            {
+                "city": "Rio de Janeiro",
+                "country": "Brazil"
+            },
+            {
+                "city": "Warsaw",
+                "country": "Poland"
+            },
+            {
+                "city": "Stockholm",
+                "country": "Sweden"
+            },
+            {
+                "city": "Lisbon",
+                "country": "Portugal"
+            },
+            {
+                "city": "Prague",
+                "country": "Czech Republic"
+            },
+            {
+                "city": "Vienna",
+                "country": "Austria"
+            },
+            {
+                "city": "Zurich",
+                "country": "Switzerland"
+            },
+            {
+                "city": "Athens",
+                "country": "Greece"
+            },
+            {
+                "city": "Osaka",
+                "country": "Japan"
+            },
+            {
+                "city": "Lima",
+                "country": "Peru"
+            },
+            {
+                "city": "Budapest",
+                "country": "Hungary"
+            },
+            {
+                "city": "Manila",
+                "country": "Philippines"
+            },
+            {
+                "city": "Auckland",
+                "country": "New Zealand"
+            },
+            {
+                "city": "Casablanca",
+                "country": "Morocco"
+            },
+            {
+                "city": "Brussels",
+                "country": "Belgium"
+            },
+            {
+                "city": "Helsinki",
+                "country": "Finland"
+            },
+            {
+                "city": "Ottawa",
+                "country": "Canada"
+            },
+            {
+                "city": "Taipei",
+                "country": "Taiwan"
+            },
+            {
+                "city": "Cape Town",
+                "country": "South Africa"
+            },
+            {
+                "city": "Tel Aviv",
+                "country": "Israel"
+            },
+            {
+                "city": "New Delhi",
+                "country": "India"
+            },
+            {
+                "city": "Santiago",
+                "country": "Chile"
+            },
+            {
+                "city": "Bangalore",
+                "country": "India"
+            },
+            {
+                "city": "Ho Chi Minh City",
+                "country": "Vietnam"
+            },
+            {
+                "city": "Vancouver",
+                "country": "Canada"
+            },
+            {
+                "city": "Buenos Aires",
+                "country": "Argentina"
+            },
+            {
+                "city": "Geneva",
+                "country": "Switzerland"
+            },
+            {
+                "city": "Bogotá",
+                "country": "Colombia"
+            },
+            {
+                "city": "Doha",
+                "country": "Qatar"
+            },
+            {
+                "city": "Reykjavik",
+                "country": "Iceland"
+            },
+            {
+                "city": "Perth",
+                "country": "Australia"
+            },
+            {
+                "city": "Guangzhou",
+                "country": "China"
+            },
+            {
+                "city": "Montevideo",
+                "country": "Uruguay"
+            },
+            {
+                "city": "Tallinn",
+                "country": "Estonia"
+            },
+            {
+                "city": "Kuwait City",
+                "country": "Kuwait"
+            },
+            {
+                "city": "Amman",
+                "country": "Jordan"
+            }
+        ]
+    }
+}
