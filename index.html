@@ -20,10 +20,8 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
   </head>
-  
-  <div id="main-header"></div> <!--Dynamic header inserts here-->
-  
   <body>
+    <div id="main-header"></div> <!--Dynamic header inserts here-->
     <main class="divider">
       <div class="city-select">
         <div class="box">
@@ -34,13 +32,19 @@
               <select id="start-city">
                 <!--Dynamic dropdown city options insert here-->
               </select>
+              
+              <button id="random-start-city">Random City</button> <!-- Button for generating a random starting city -->
             </div>
             <div class="input-wrapper">
               <label for="search-start-city">Search for a City:</label>
               <input type="text" id="search-start-city" placeholder="Type a city name...">
+              <label for="start-multi-result">Choose City:</label>
+              <select id="start-multi-result">
+                <option disabled selected>No matching cities</option>
+                <!-- Add options dynamically -->
+              </select>
             </div>
           </div>
-          <button id="random-start-city">Random City</button> <!-- Button for generating a random starting city -->
         </div>
         
         <div class="box">
@@ -51,13 +55,19 @@
               <select id="end-city">
                 <!--Dynamic dropdown city options insert here-->
               </select>
+              <button id="random-end-city">Random City</button> <!-- Button for generating a random ending city -->
             </div>
             <div class="input-wrapper">
               <label for="search-end-city">Search for a City:</label>
               <input type="text" id="search-end-city" placeholder="Type a city name...">
+              <label for="end-multi-result">Choose City:</label>
+              <select id="end-multi-result">
+                <option disabled selected>No matching cities</option>
+                <!-- Add options dynamically -->
+              </select>
             </div>
           </div>
-          <button id="random-end-city">Random City</button> <!-- Button for generating a random ending city -->
+          
         </div>      
       </div>
       <!-- City Details Section Below -->
@@ -72,6 +82,7 @@
           <!-- API data and other details will be inserted here -->
         </div>
       </div>
+      <div id="location-info" class="status-message"></div>
     </main>
     <footer id="footer"></footer>
     <script type="module" src="./scripts/main.js"></script>

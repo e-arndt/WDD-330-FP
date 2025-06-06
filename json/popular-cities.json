@@ -3,461 +3,575 @@
         "USA": [
             {
                 "city": "New York",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Los Angeles",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Chicago",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Houston",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Phoenix",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Philadelphia",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "San Antonio",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "San Diego",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Dallas",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "San Jose",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Austin",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Jacksonville",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Fort Worth",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Columbus",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Charlotte",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "San Francisco",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Indianapolis",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Seattle",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Denver",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Washington D.C.",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Boston",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "El Paso",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Nashville",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Detroit",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Memphis",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Las Vegas",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Louisville",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Portland",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Oklahoma City",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Milwaukee",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Albuquerque",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Tucson",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Fresno",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Sacramento",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Kansas City",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Atlanta",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Miami",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Baltimore",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Tampa",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Orlando",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "St. Louis",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Cleveland",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Pittsburgh",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Cincinnati",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Raleigh",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Salt Lake City",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Richmond",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Minneapolis",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "Buffalo",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             },
             {
                 "city": "New Orleans",
-                "country": "United States"
+                "country": "United States",
+                "countryCode": "US"
             }
         ],
         "International": [
             {
                 "city": "London",
-                "country": "United Kingdom"
+                "country": "United Kingdom",
+                "countryCode": "GB"
             },
             {
                 "city": "Tokyo",
-                "country": "Japan"
+                "country": "Japan",
+                "countryCode": "JP"
             },
             {
                 "city": "Paris",
-                "country": "France"
+                "country": "France",
+                "countryCode": "FR"
             },
             {
                 "city": "Shanghai",
-                "country": "China"
+                "country": "China",
+                "countryCode": "CN"
             },
             {
                 "city": "Moscow",
-                "country": "Russia"
+                "country": "Russia",
+                "countryCode": "RU"
             },
             {
                 "city": "Dubai",
-                "country": "United Arab Emirates"
+                "country": "United Arab Emirates",
+                "countryCode": "AE"
             },
             {
                 "city": "Singapore",
-                "country": "Singapore"
+                "country": "Singapore",
+                "countryCode": "SG"
             },
             {
                 "city": "Sydney",
-                "country": "Australia"
+                "country": "Australia",
+                "countryCode": "AU"
             },
             {
                 "city": "Toronto",
-                "country": "Canada"
+                "country": "Canada",
+                "countryCode": "CA"
             },
             {
                 "city": "Berlin",
-                "country": "Germany"
+                "country": "Germany",
+                "countryCode": "DE"
             },
             {
                 "city": "Mexico City",
-                "country": "Mexico"
+                "country": "Mexico",
+                "countryCode": "MX"
             },
             {
                 "city": "Barcelona",
-                "country": "Spain"
+                "country": "Spain",
+                "countryCode": "ES"
             },
             {
                 "city": "Mumbai",
-                "country": "India"
+                "country": "India",
+                "countryCode": "IN"
             },
             {
                 "city": "Rome",
-                "country": "Italy"
+                "country": "Italy",
+                "countryCode": "IT"
             },
             {
                 "city": "Beijing",
-                "country": "China"
+                "country": "China",
+                "countryCode": "CN"
             },
             {
                 "city": "Bangkok",
-                "country": "Thailand"
+                "country": "Thailand",
+                "countryCode": "TH"
             },
             {
                 "city": "Istanbul",
-                "country": "Turkey"
+                "country": "Turkey",
+                "countryCode": "TR"
             },
             {
                 "city": "Hong Kong",
-                "country": "China"
+                "country": "China",
+                "countryCode": "CN"
             },
             {
                 "city": "São Paulo",
-                "country": "Brazil"
+                "country": "Brazil",
+                "countryCode": "BR"
             },
             {
                 "city": "Seoul",
-                "country": "South Korea"
+                "country": "South Korea",
+                "countryCode": "KR"
             },
             {
                 "city": "Buenos Aires",
-                "country": "Argentina"
+                "country": "Argentina",
+                "countryCode": "AR"
             },
             {
                 "city": "Cairo",
-                "country": "Egypt"
+                "country": "Egypt",
+                "countryCode": "EG"
             },
             {
                 "city": "Jakarta",
-                "country": "Indonesia"
+                "country": "Indonesia",
+                "countryCode": "ID"
             },
             {
                 "city": "Kuala Lumpur",
-                "country": "Malaysia"
+                "country": "Malaysia",
+                "countryCode": "MY"
             },
             {
                 "city": "Johannesburg",
-                "country": "South Africa"
+                "country": "South Africa",
+                "countryCode": "ZA"
             },
             {
                 "city": "Madrid",
-                "country": "Spain"
+                "country": "Spain",
+                "countryCode": "ES"
             },
             {
                 "city": "Dublin",
-                "country": "Ireland"
+                "country": "Ireland",
+                "countryCode": "IE"
             },
             {
                 "city": "Copenhagen",
-                "country": "Denmark"
+                "country": "Denmark",
+                "countryCode": "DK"
             },
             {
                 "city": "Hanoi",
-                "country": "Vietnam"
+                "country": "Vietnam",
+                "countryCode": "VN"
             },
             {
                 "city": "Rio de Janeiro",
-                "country": "Brazil"
+                "country": "Brazil",
+                "countryCode": "BR"
             },
             {
                 "city": "Warsaw",
-                "country": "Poland"
+                "country": "Poland",
+                "countryCode": "PL"
             },
             {
                 "city": "Stockholm",
-                "country": "Sweden"
+                "country": "Sweden",
+                "countryCode": "SE"
             },
             {
                 "city": "Lisbon",
-                "country": "Portugal"
+                "country": "Portugal",
+                "countryCode": "PT"
             },
             {
                 "city": "Prague",
-                "country": "Czech Republic"
+                "country": "Czech Republic",
+                "countryCode": "CZ"
             },
             {
                 "city": "Vienna",
-                "country": "Austria"
+                "country": "Austria",
+                "countryCode": "AT"
             },
             {
                 "city": "Zurich",
-                "country": "Switzerland"
+                "country": "Switzerland",
+                "countryCode": "CH"
             },
             {
                 "city": "Athens",
-                "country": "Greece"
+                "country": "Greece",
+                "countryCode": "GR"
             },
             {
                 "city": "Osaka",
-                "country": "Japan"
+                "country": "Japan",
+                "countryCode": "JP"
             },
             {
                 "city": "Lima",
-                "country": "Peru"
+                "country": "Peru",
+                "countryCode": "PE"
             },
             {
                 "city": "Budapest",
-                "country": "Hungary"
+                "country": "Hungary",
+                "countryCode": "HU"
             },
             {
                 "city": "Manila",
-                "country": "Philippines"
+                "country": "Philippines",
+                "countryCode": "PH"
             },
             {
                 "city": "Auckland",
-                "country": "New Zealand"
+                "country": "New Zealand",
+                "countryCode": "NZ"
             },
             {
                 "city": "Casablanca",
-                "country": "Morocco"
+                "country": "Morocco",
+                "countryCode": "MA"
             },
             {
                 "city": "Brussels",
-                "country": "Belgium"
+                "country": "Belgium",
+                "countryCode": "BE"
             },
             {
                 "city": "Helsinki",
-                "country": "Finland"
+                "country": "Finland",
+                "countryCode": "FI"
             },
             {
                 "city": "Ottawa",
-                "country": "Canada"
+                "country": "Canada",
+                "countryCode": "CA"
             },
             {
                 "city": "Taipei",
-                "country": "Taiwan"
+                "country": "Taiwan",
+                "countryCode": "TW"
             },
             {
                 "city": "Cape Town",
-                "country": "South Africa"
+                "country": "South Africa",
+                "countryCode": "ZA"
             },
             {
                 "city": "Tel Aviv",
-                "country": "Israel"
+                "country": "Israel",
+                "countryCode": "IL"
             },
             {
                 "city": "New Delhi",
-                "country": "India"
+                "country": "India",
+                "countryCode": "IN"
             },
             {
                 "city": "Santiago",
-                "country": "Chile"
+                "country": "Chile",
+                "countryCode": "CL"
             },
             {
                 "city": "Bangalore",
-                "country": "India"
+                "country": "India",
+                "countryCode": "IN"
             },
             {
                 "city": "Ho Chi Minh City",
-                "country": "Vietnam"
+                "country": "Vietnam",
+                "countryCode": "VN"
             },
             {
                 "city": "Vancouver",
-                "country": "Canada"
+                "country": "Canada",
+                "countryCode": "CA"
             },
             {
                 "city": "Geneva",
-                "country": "Switzerland"
+                "country": "Switzerland",
+                "countryCode": "CH"
             },
             {
                 "city": "Bogotá",
-                "country": "Colombia"
+                "country": "Colombia",
+                "countryCode": "CO"
             },
             {
                 "city": "Doha",
-                "country": "Qatar"
+                "country": "Qatar",
+                "countryCode": "QA"
             },
             {
                 "city": "Reykjavik",
-                "country": "Iceland"
+                "country": "Iceland",
+                "countryCode": "IS"
             },
             {
                 "city": "Perth",
-                "country": "Australia"
+                "country": "Australia",
+                "countryCode": "AU"
             },
             {
                 "city": "Guangzhou",
-                "country": "China"
+                "country": "China",
+                "countryCode": "CN"
             },
             {
                 "city": "Montevideo",
-                "country": "Uruguay"
+                "country": "Uruguay",
+                "countryCode": "UY"
             },
             {
                 "city": "Tallinn",
-                "country": "Estonia"
+                "country": "Estonia",
+                "countryCode": "EE"
             },
             {
                 "city": "Kuwait City",
-                "country": "Kuwait"
+                "country": "Kuwait",
+                "countryCode": "KW"
             },
             {
                 "city": "Amman",
-                "country": "Jordan"
+                "country": "Jordan",
+                "countryCode": "JO"
             }
         ]
     }
