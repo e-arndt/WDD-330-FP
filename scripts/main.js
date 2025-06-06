@@ -3,13 +3,17 @@ import { getCityData } from "./citySearch.mjs"; // Import city search functional
 
 // Run on page load 
 loadHeaderFooter();
-populateCitiesDropdowns(); // dropdowns
+populateCitiesDropdowns().then(() => {
+    document.getElementById("start-city").addEventListener("change", handleStartCitySelection);
+    document.getElementById("end-city").addEventListener("change", handleEndCitySelection);
+});
+ // dropdowns
 
 function chooseCityDropdown(dropdownId, cities) {
     const dropdown = document.getElementById(dropdownId);
     dropdown.innerHTML = ""; // Clear previous results
 
-    if (cities.length === 0) {
+    if (!cities || cities.length === 0) {
         dropdown.innerHTML = `<option value="">No matches found</option>`;
         return;
     }
@@ -20,7 +24,11 @@ function chooseCityDropdown(dropdownId, cities) {
         option.textContent = `${city.city}, ${city.country}`;
         dropdown.appendChild(option);
     });
+
+    // Automatically select the first city (optional)
+    dropdown.selectedIndex = 0;
 }
+
 
 
 // Function to populate dropdowns with city data from JSON (UNCHANGED)
@@ -92,6 +100,11 @@ async function handleStartCitySelection() {
             <p>Latitude: ${cityData.latitude}</p>
             <p>Longitude: ${cityData.longitude}</p>
             <img src="https://flagsapi.com/${cityData.countryCode}/flat/64.png" alt="${cityData.country} flag">`;
+        
+        // **Reset the dropdown to allow selection again**
+        startCitySelect.value = "";
+        populateCitiesDropdowns(); // Repopulates the dropdown
+
     } catch (error) {
         console.error("Error fetching city data:", error);
         startCityResult.innerHTML = `<p>Error retrieving city data.</p>`;
@@ -131,23 +144,30 @@ async function handleEndCitySelection() {
 }
 
 // Attach event listeners for city selection (AFTER populateCitiesDropdowns runs)
-document.getElementById("start-city").addEventListener("change", handleStartCitySelection);
-document.getElementById("end-city").addEventListener("change", handleEndCitySelection);
-
-// Attach event listeners for city search inputs (handles API calls)
 document.getElementById("search-start-city").addEventListener("input", async (event) => {
     const searchValue = event.target.value.trim();
-    if (!searchValue.length) return; // Ensure no empty inputs
+    if (!searchValue.length) return;
 
     const cities = await getCityData(searchValue);
-    chooseCityDropdown("start-multi-result", cities); // function call
+    console.log("API Response:", cities); // Check if cities array has data
+
+    if (cities && cities.length > 0) {
+        chooseCityDropdown("start-multi-result", cities);
+    } else {
+        console.error("No cities found for:", searchValue);
+    }
 });
+
+
 
 document.getElementById("search-end-city").addEventListener("input", async (event) => {
     const searchValue = event.target.value.trim();
-    if (!searchValue) return;
+    if (!searchValue.length) return;
 
     const cities = await getCityData(searchValue);
-    chooseCityDropdown("end-multi-result", cities); // function call
+
+    if (cities) {
+        chooseCityDropdown("end-multi-result", cities);
+    }
 });
 
