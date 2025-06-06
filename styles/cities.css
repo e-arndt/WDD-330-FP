@@ -39,7 +39,7 @@ body {
     color: var(--light-color);
     flex-grow: 1; /* Allows headline to take up remaining space */
     text-align: center; /* Aligns text to the right */
-    text-shadow: 2.5px 2.5px 5px var(--dark-color);
+    text-shadow: 2.5px 2.5px 4px var(--dark-color);
 }
 
 .header-container {
@@ -54,7 +54,7 @@ body {
     height: auto;
     margin-left: 40px; /* Adds space between logo and headline */
     border: 2px solid var(--dark-color);
-    border-radius: 8px;
+    border-radius: 10px;
     
 }
 
@@ -76,6 +76,7 @@ body {
     width: 100%; /* Same width as #main-header */
     display: flex; /* Ensure boxes align in a row */
     justify-content: space-between; /* Keep spacing even */
+    margin-top: 2px;
     gap: 1px;
 }
 
@@ -89,10 +90,10 @@ body {
 }
 
 .box h2 {
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 32px;
+    font-weight: normal;
     color: var(--light-color);
-    text-shadow: 2.5px 2.5px 5px black;
+    text-shadow: 2px 2px 3px black;
     margin-bottom: 10px;
     text-align: center;
     padding-bottom: 1rem;
@@ -103,7 +104,7 @@ body {
     color: var(--light-color);
     display: block;
     margin-bottom: 5px;
-    text-shadow: 2.5px 2.5px 5px black;
+    text-shadow: 2px 2px 3px black;
 }
 
 .box select {
@@ -140,7 +141,7 @@ body {
     font-size: 20px;
     color: var(--light-color);
     border-radius: 25px;
-    border: 1px solid var(--dark-color);
+    border: 2px solid var(--dark-color);
     background-color: var(--tertiary-color);
     margin-left: auto;
     margin-right: auto;
@@ -154,7 +155,7 @@ body {
     font-size: 20px;
     color: var(--light-color);
     border-radius: 25px;
-    border: 1px solid var(--dark-color);
+    border: 2px solid var(--dark-color);
     background-color: var(--tertiary-color);
 }
 
@@ -170,18 +171,44 @@ body {
     font-size: 20px;
     font-weight: bold;
     border-radius: 25px;
-    border: 1px solid var(--dark-color);
+    border: 2px solid var(--dark-color);
     background-color: var(--tertiary-color);
     color: var(--light-color);
     margin-left: auto;
     margin-right: auto;
     display: block;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, color 0.3s ease-in-out;
+    /* Ensure text color transitions */
 }
 
 .box button:hover {
     background-color: var(--primary-color);
+    border: 2px solid var(--light-color);
+    color: var(--dark-color);
+}
+
+.city-details {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1px;
+}
+
+.start-city-result,
+.end-city-result {
+    flex: 1;
+    background-color: var(--secondary-color);
+    padding: 20px;
+    text-align: center;
+    border: 1px solid var(--dark-color);
+    border-radius: 10px;
+}
+
+/* Adjust spacing between the two rows */
+.city-details {
+    margin-top: 2px;
+    /* Pushes the detail boxes below the selection boxes */
 }
 
 #footer {
