@@ -140,6 +140,66 @@
             {
                 "city": "Kansas City",
                 "country": "United States"
+            },
+            {
+                "city": "Atlanta",
+                "country": "United States"
+            },
+            {
+                "city": "Miami",
+                "country": "United States"
+            },
+            {
+                "city": "Baltimore",
+                "country": "United States"
+            },
+            {
+                "city": "Tampa",
+                "country": "United States"
+            },
+            {
+                "city": "Orlando",
+                "country": "United States"
+            },
+            {
+                "city": "St. Louis",
+                "country": "United States"
+            },
+            {
+                "city": "Cleveland",
+                "country": "United States"
+            },
+            {
+                "city": "Pittsburgh",
+                "country": "United States"
+            },
+            {
+                "city": "Cincinnati",
+                "country": "United States"
+            },
+            {
+                "city": "Raleigh",
+                "country": "United States"
+            },
+            {
+                "city": "Salt Lake City",
+                "country": "United States"
+            },
+            {
+                "city": "Richmond",
+                "country": "United States"
+            },
+            {
+                "city": "Minneapolis",
+                "country": "United States"
+            },
+            {
+                "city": "Buffalo",
+                "country": "United States"
+            },
+            {
+                "city": "New Orleans",
+                "country": "United States"
             }
         ],
         "International": [
@@ -358,10 +418,6 @@
             {
                 "city": "Vancouver",
                 "country": "Canada"
-            },
-            {
-                "city": "Buenos Aires",
-                "country": "Argentina"
             },
             {
                 "city": "Geneva",
