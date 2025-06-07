@@ -202,7 +202,7 @@ body {
 .end-city-result {
     flex: 1;
     background-color: var(--secondary-color);
-    padding: 20px;
+    padding: 5px;
     text-align: center;
     border: 1px solid var(--dark-color);
     border-radius: 10px;
@@ -212,6 +212,19 @@ body {
 .city-details {
     margin-top: 2px;
     /* Pushes the detail boxes below the selection boxes */
+}
+
+.city-details p {
+    padding-top: .5rem;
+    font-size: 1.25rem;
+}
+
+img.flag {
+    width: auto;
+    height: auto;
+    max-width: 285px;
+    max-height: 150px;
+    padding-top: .5rem;
 }
 
 #footer {

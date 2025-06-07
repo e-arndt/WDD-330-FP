@@ -1,5 +1,7 @@
 import { loadHeaderFooter } from "./utils.mjs";
 import { getCityData } from "./citySearch.mjs"; // Import city search functionality
+import { getRandomCity } from "./random.mjs";
+import { generateCityDetails } from "./utils.mjs";
 
 // Run on page load 
 loadHeaderFooter();
@@ -80,36 +82,50 @@ async function handleStartCitySelection() {
     if (!selectedValue) return;
 
     const [selectedCity, selectedCountryCode] = selectedValue.split("|");
-    console.log("Selected Value:", selectedValue);
-    console.log("Split Values:", selectedCity, selectedCountryCode);
 
-
+    let cityData;
     try {
         document.getElementById("location-info").textContent = "Fetching city data...";
-        const cityData = await getCityData(selectedCity, selectedCountryCode);
 
-        if (!cityData) {
-            startCityResult.innerHTML = `<p>City data not found.</p>`;
-            return;
+        // **Override API call for Paris**
+        if (selectedCity.toLowerCase() === "paris" && selectedCountryCode.toUpperCase() === "FR") {
+            console.log("Fetching Paris using WikiData ID Q90");
+
+            const url = `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?wikiDataId=Q90`;
+            const options = {
+                method: "GET",
+                headers: {
+                    "X-RapidAPI-Key": "YOUR_API_KEY",
+                    "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
+                }
+            };
+
+            const response = await fetch(url, options);
+            const data = await response.json();
+
+            if (data.data && data.data.length > 0) {
+                cityData = data.data[0]; // Extract Paris data
+            } else {
+                console.error("Paris not found via WikiData ID Q90.");
+                startCityResult.innerHTML = `<p>Error retrieving Paris data.</p>`;
+                return;
+            }
+        } else {
+            cityData = await getCityData(selectedCity, selectedCountryCode);
         }
 
-        startCityResult.innerHTML = `
-            <h2>Starting City Details</h2>
-            <p>City: ${cityData.city}</p>
-            <p>Country: ${cityData.country}</p>
-            <p>Latitude: ${cityData.latitude}</p>
-            <p>Longitude: ${cityData.longitude}</p>
-            <img src="https://flagsapi.com/${cityData.countryCode}/flat/64.png" alt="${cityData.country} flag">`;
-        
+        startCityResult.innerHTML = generateCityDetails(cityData, true);
+
         // **Reset the dropdown to allow selection again**
         startCitySelect.value = "";
-        populateCitiesDropdowns(); // Repopulates the dropdown
+        populateCitiesDropdowns();
 
     } catch (error) {
         console.error("Error fetching city data:", error);
         startCityResult.innerHTML = `<p>Error retrieving city data.</p>`;
     }
 }
+
 
 // Function to handle END city selection and fetch data
 async function handleEndCitySelection() {
@@ -125,23 +141,14 @@ async function handleEndCitySelection() {
         document.getElementById("location-info").textContent = "Fetching city data...";
         const cityData = await getCityData(selectedCity, selectedCountryCode);
 
-        if (!cityData) {
-            endCityResult.innerHTML = `<p>City data not found.</p>`;
-            return;
-        }
+        endCityResult.innerHTML = generateCityDetails(cityData, false); // Using template
 
-        endCityResult.innerHTML = `
-            <h2>Ending City Details</h2>
-            <p>City: ${cityData.city}</p>
-            <p>Country: ${cityData.country}</p>
-            <p>Latitude: ${cityData.latitude}</p>
-            <p>Longitude: ${cityData.longitude}</p>
-            <img src="https://flagsapi.com/${cityData.countryCode}/flat/64.png" alt="${cityData.country} flag">`;
     } catch (error) {
         console.error("Error fetching city data:", error);
         endCityResult.innerHTML = `<p>Error retrieving city data.</p>`;
     }
 }
+
 
 // Attach event listeners for city selection (AFTER populateCitiesDropdowns runs)
 document.getElementById("search-start-city").addEventListener("input", async (event) => {
@@ -158,6 +165,14 @@ document.getElementById("search-start-city").addEventListener("input", async (ev
     }
 });
 
+
+document.getElementById("random-start-city").addEventListener("click", () => {
+    getRandomCity("start-city-result"); // Display results in start city section
+});
+
+document.getElementById("random-end-city").addEventListener("click", () => {
+    getRandomCity("end-city-result"); // Display results in end city section
+});
 
 
 document.getElementById("search-end-city").addEventListener("input", async (event) => {
