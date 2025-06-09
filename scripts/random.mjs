@@ -1,7 +1,10 @@
-import { getCityData } from "./citySearch.mjs"; // Import API function
+import { getCityData } from "./citySearch.mjs";
 import { generateCityDetails } from "./utils.mjs";
 
-export async function getRandomCity(targetElementId, isStartCity) {
+let startCityData = null;
+let endCityData = null;
+
+export async function getRandomCity(targetElementId) {
     try {
         const response = await fetch("./json/popular-cities.json");
         const data = await response.json();
@@ -27,8 +30,28 @@ export async function getRandomCity(targetElementId, isStartCity) {
             return;
         }
 
-        // Use `generateCityDetails` function to format output
-        document.querySelector(`.${targetElementId}`).innerHTML = generateCityDetails(cityData, isStartCity);
+        // Determine if this is the START or END city based on targetElementId
+        const isStart = targetElementId.includes("start");
+
+        // Store city data globally
+        if (isStart) {
+            startCityData = cityData;
+        } else {
+            endCityData = cityData;
+        }
+
+        // Update details with distance calculation
+        document.querySelector(`.${targetElementId}`).innerHTML = generateCityDetails(
+            cityData,
+            isStart,
+            isStart ? endCityData : startCityData // Pass the other city for distance
+        );
+
+        // Refresh the other city’s details to reflect updated distance
+        if (startCityData && endCityData) {
+            document.querySelector(".start-city-result").innerHTML = generateCityDetails(startCityData, true, endCityData);
+            document.querySelector(".end-city-result").innerHTML = generateCityDetails(endCityData, false, startCityData);
+        }
     } catch (error) {
         console.error("Error fetching random city data:", error);
     }

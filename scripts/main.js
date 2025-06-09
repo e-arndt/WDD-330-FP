@@ -73,7 +73,9 @@ async function populateCitiesDropdowns() {
     }
 }
 
-// Function to handle START city selection and fetch data
+let startCityData = null;
+let endCityData = null;
+
 async function handleStartCitySelection() {
     const startCitySelect = document.getElementById("start-city");
     const startCityResult = document.querySelector(".start-city-result");
@@ -83,41 +85,17 @@ async function handleStartCitySelection() {
 
     const [selectedCity, selectedCountryCode] = selectedValue.split("|");
 
-    let cityData;
     try {
-        document.getElementById("location-info").textContent = "Fetching city data...";
+        document.getElementById("location-info").textContent = "Retrieving city data...";
+        startCityData = await getCityData(selectedCity, selectedCountryCode);
 
-        // **Override API call for Paris**
-        if (selectedCity.toLowerCase() === "paris" && selectedCountryCode.toUpperCase() === "FR") {
-            console.log("Fetching Paris using WikiData ID Q90");
+        startCityResult.innerHTML = generateCityDetails(startCityData, true, endCityData);
 
-            const url = `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?wikiDataId=Q90`;
-            const options = {
-                method: "GET",
-                headers: {
-                    "X-RapidAPI-Key": "YOUR_API_KEY",
-                    "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
-                }
-            };
-
-            const response = await fetch(url, options);
-            const data = await response.json();
-
-            if (data.data && data.data.length > 0) {
-                cityData = data.data[0]; // Extract Paris data
-            } else {
-                console.error("Paris not found via WikiData ID Q90.");
-                startCityResult.innerHTML = `<p>Error retrieving Paris data.</p>`;
-                return;
-            }
-        } else {
-            cityData = await getCityData(selectedCity, selectedCountryCode);
+        if (endCityData) {
+            document.querySelector(".end-city-result").innerHTML = generateCityDetails(endCityData, false, startCityData);
         }
 
-        startCityResult.innerHTML = generateCityDetails(cityData, true);
-
-        // **Reset the dropdown to allow selection again**
-        startCitySelect.value = "";
+        startCitySelect.value = ""; // **Clears dropdown after selection**
         populateCitiesDropdowns();
 
     } catch (error) {
@@ -127,7 +105,6 @@ async function handleStartCitySelection() {
 }
 
 
-// Function to handle END city selection and fetch data
 async function handleEndCitySelection() {
     const endCitySelect = document.getElementById("end-city");
     const endCityResult = document.querySelector(".end-city-result");
@@ -138,16 +115,25 @@ async function handleEndCitySelection() {
     const [selectedCity, selectedCountryCode] = selectedValue.split("|");
 
     try {
-        document.getElementById("location-info").textContent = "Fetching city data...";
-        const cityData = await getCityData(selectedCity, selectedCountryCode);
+        document.getElementById("location-info").textContent = "Retrieving city data...";
+        endCityData = await getCityData(selectedCity, selectedCountryCode);
 
-        endCityResult.innerHTML = generateCityDetails(cityData, false); // Using template
+        endCityResult.innerHTML = generateCityDetails(endCityData, false, startCityData);
+
+        if (startCityData) {
+            document.querySelector(".start-city-result").innerHTML = generateCityDetails(startCityData, true, endCityData);
+        }
+
+        endCitySelect.value = ""; // **Clears dropdown after selection**
 
     } catch (error) {
         console.error("Error fetching city data:", error);
         endCityResult.innerHTML = `<p>Error retrieving city data.</p>`;
     }
 }
+
+
+
 
 
 // Attach event listeners for city selection (AFTER populateCitiesDropdowns runs)
