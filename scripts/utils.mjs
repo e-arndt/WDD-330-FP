@@ -1,3 +1,7 @@
+import { weatherCache } from "./cache.mjs";
+import { generateCityWeather } from "./cityWeather.mjs";
+
+
 function updateCopyrightYear() {
     const yearElement = document.querySelector("#copyright-year");
     if (yearElement) {
@@ -38,18 +42,34 @@ export function generateCityDetails(cityData, isStartCity = true, otherCityData 
 
     const stateOrRegion = cityData.countryCode === "US" ? cityData.state : "";
     const flagPath = `/images/flags/${cityData.countryCode.toLowerCase()}.svg`;
-
-    // Compute distance if another city is selected
     const distance = otherCityData ? determineDistance(cityData, otherCityData) : "0 miles";
 
-    return `
+    const detailsHtml = `
         <h2>${isStartCity ? "Starting" : "Ending"} City Details</h2>
         <p>City: ${cityData.city}${stateOrRegion ? ", " + stateOrRegion : ""}</p>
         <p>Country: ${cityData.country}</p>
         <p>Population: ${cityData.population ? cityData.population.toLocaleString() : "N/A"}</p>
-        <p>Distance to other city: ${distance}</p>
-        <img src="${flagPath}" alt="${cityData.country} flag" class="flag">`;
+        <p>Distance between cities: ${distance}</p>
+        <img src="${flagPath}" alt="${cityData.country} flag" class="flag">
+        <div class="${isStartCity ? "start-city-wx" : "end-city-wx"}"></div>
+    `;
+
+    // **Return the generated HTML string**
+    return detailsHtml;
 }
+
+export function updateCityWeather(cityData, isStartCity) {
+    setTimeout(async () => {
+        const cachedWeather = await weatherCache(cityData.city);
+        if (cachedWeather) {
+            generateCityWeather(cityData, isStartCity);
+        } else {
+            console.warn(`Weather data unavailable for ${cityData.city}`);
+        }
+    }, 100);
+}
+
+
 
 
 export function determineDistance(cityData1, cityData2) {
@@ -74,6 +94,5 @@ export function determineDistance(cityData1, cityData2) {
 
     return `${distance.toFixed(2)} miles`;
 }
-
 
 

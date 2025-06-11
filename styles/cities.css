@@ -6,9 +6,9 @@
 
 /* Color Scheme */
     --primary-color: #FF6F61; /* Muted Coral - Accent */
-    --secondary-color: #DAA520; /* Golden Yellow - Background */
+    --secondary-color: #d6a018; /* Golden Yellow - Background */
     --tertiary-color: #FF4500; /* Burnt Orange - Hover Effect */
-    --light-color: #F5E8D8; /* Warm Beige - Text/Accent */
+    --light-color: ghostwhite; /* GhostWhite - Text/Accent */
     --dark-color: #1C1C1C; /* Soft Black - Background/Accent */
 
 
@@ -50,14 +50,17 @@ body {
 }
 
 .logo {
-    width: 150px; /* Adjust size */
+    width: 115px; /* Adjust size */
     height: auto;
     margin-left: 40px; /* Adds space between logo and headline */
     border: 2px solid var(--dark-color);
     border-radius: 10px;
-    
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+.logo:hover {
+    transform: scale(1.1); /* Slight zoom */
+}
 
 #main-header {
     width: 100%;
@@ -67,9 +70,6 @@ body {
     transition: background-color 0.3s ease-in-out;
 }
 
-#main-header:hover {
-    background-color: var(--secondary-color);
-}
 
 
 .city-select {
@@ -202,7 +202,7 @@ body {
 .end-city-result {
     flex: 1;
     background-color: var(--secondary-color);
-    padding: 5px;
+    padding: 3px;
     text-align: center;
     border: 1px solid var(--dark-color);
     border-radius: 10px;
@@ -210,12 +210,12 @@ body {
 
 /* Adjust spacing between the two rows */
 .city-details {
-    margin-top: 2px;
+    margin-top: 1px;
     /* Pushes the detail boxes below the selection boxes */
 }
 
 .city-details p {
-    padding-top: .5rem;
+    padding-top: .25rem;
     font-size: 1.25rem;
 }
 
@@ -227,10 +227,30 @@ img.flag {
     padding-top: .5rem;
 }
 
+/* Ensure weather section aligns inside the city result boxes */
+.start-city-wx,
+.end-city-wx {
+    text-align: center;
+}
+
+/* Make sure images scale properly */
+.start-city-wx img,
+.end-city-wx img {
+    margin-top: 5px;
+    background-color: var(--tertiary-color);
+    max-width: auto;
+    height: 85px;
+}
+
+#location-info {
+    color: white;
+}
+
 #footer {
+    margin-top: 2px;
     width: 100%;
     background-color: var(--primary-color);
-    padding: 5px;
+    padding: 10px;
     border-radius: 10px;
     text-align: center;
     color: var(--light-color); /* Ensures readability against the background */
@@ -238,7 +258,3 @@ img.flag {
     transition: background-color 0.3s ease-in-out;
 }
 
-#footer:hover {
-    background-color: var(--secondary-color);
-    border-bottom: 3px solid #333;
-}

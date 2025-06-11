@@ -24,7 +24,7 @@ export async function getCityData(city, countryCode = "", stateCode = null) {
     try {
         const response = await fetch(url, options);
         const data = await response.json();
-        console.log("API Raw Response:", data);
+        // console.log("API Raw Response Data:", JSON.stringify(data.data, null, 2));
 
         if (!data.data || data.data.length === 0) {
             console.error(`No valid cities found for ${city}, ${stateCode ? stateCode + ", " : ""}${countryCode}`);
@@ -39,7 +39,7 @@ export async function getCityData(city, countryCode = "", stateCode = null) {
             (!stateCode || entry.regionCode === stateCode)
         );
 
-        console.log("Filtered Cities Data:", filteredCities);
+        // console.log("Filtered Cities Before Sorting:", JSON.stringify(filteredCities, null, 2));
 
         // Sort the filtered cities by population (highest first) and select the top result.
         const matchedCity = filteredCities.length
@@ -47,12 +47,13 @@ export async function getCityData(city, countryCode = "", stateCode = null) {
             : null;
 
 
-
-        if (!matchedCity) {
-            console.error("No exact match found for the selected city.");
-            return null;
+        if (!matchedCity.latitude || !matchedCity.longitude) {
+            console.error("Latitude/Longitude missing from matched city data.");
+            return {};
         }
 
+            
+        console.log("Latitude/Longitude Verification:", matchedCity.latitude, matchedCity.longitude);
         console.log("Matched City Data:", matchedCity);
 
         return {
@@ -68,7 +69,7 @@ export async function getCityData(city, countryCode = "", stateCode = null) {
 
     } catch (error) {
         console.error("API fetch error:", error);
-        return [];
+        return null;
     }
 }
 
