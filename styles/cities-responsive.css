@@ -1,0 +1,152 @@
+@media (max-width: 1350px) {
+    .headline {
+        font-size: 2rem;
+    }
+
+    .logo {
+        width: 80px;
+        height: auto;
+        margin-left: 40px;
+        }
+
+    .box h2 {
+        font-size: 26px;
+             }
+
+    .input-wrapper select,
+    .input-wrapper input {
+        width: 65%;
+        padding: 10px;
+        font-size: 20px;
+           }
+
+    .box button {
+        width: 65%;
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .city-details p {
+        font-size: 1.25rem;
+    }
+
+    img.flag {
+        width: auto;
+        height: auto;
+        max-width: 185px;
+        max-height: 150px;
+           }
+
+}
+
+
+@media (max-width: 1050px) {
+    .headline {
+            font-size: 1.6rem;
+        }
+    
+    .logo {
+        width: 70px;
+        height: auto;
+        margin-left: 40px;
+    }
+
+    .box h2 {
+        font-size: 24px;
+    }
+
+    .input-wrapper select,
+    .input-wrapper input {
+        width: 50%;
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    .box button {
+        width: 50%;
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .city-details p {
+        font-size: 1rem;
+    }
+
+    img.flag {
+        width: auto;
+        height: auto;
+        max-width: 185px;
+        max-height: 150px;
+    }
+}
+
+
+@media (max-width: 850px) {
+
+    .city-select,
+    .city-details {
+        flex-direction: column;
+    }
+
+    .city-select .box,
+    .start-city-result,
+    .end-city-result {
+        width: 100%;
+    }
+
+    .city-details p {
+        font-size: 1.2rem;
+    }
+}
+
+
+@media (max-width: 750px) {
+    .headline {
+            font-size: 1.25rem;
+        }
+
+    .city-select,
+    .city-details {
+        flex-direction: column;
+    }
+
+    .city-select .box,
+    .start-city-result,
+    .end-city-result {
+        width: 100%;
+    }
+
+    .city-details p {
+        font-size: 1.2rem;
+    }
+
+    #footer {
+        font-size: 1rem;
+          }
+}
+
+
+@media (max-width: 620px) {
+    .headline {
+        font-size: .9rem;
+    }
+
+    .city-select,
+    .city-details {
+        flex-direction: column;
+    }
+
+    .city-select .box,
+    .start-city-result,
+    .end-city-result {
+        width: 100%;
+    }
+
+    .city-details p {
+        font-size: 1rem;
+    }
+
+    #footer {
+        font-size: .7rem;
+    }
+}

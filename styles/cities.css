@@ -217,7 +217,7 @@ body {
 
 .city-details p {
     padding-top: .25rem;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
 }
 
 img.flag {
@@ -228,6 +228,7 @@ img.flag {
     margin-top: 10px;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
 }
+
 
 /* Ensure weather section aligns inside the city result boxes */
 .start-city-wx,

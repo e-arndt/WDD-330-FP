@@ -9,6 +9,43 @@ function updateCopyrightYear() {
     }
 }
 
+function updateHeaderImage() {
+    const hour = new Date().getHours();
+    const headerLogo = document.querySelector(".logo");
+
+    if (!headerLogo) return;
+
+    let imageSrc = "./images/City-Skyline-sm.png"; // Default to daytime skyline
+
+    if (hour < 6 || hour >= 21) {
+        imageSrc = "./images/City-Skyline-night.png"; // Nighttime skyline
+    }
+
+    headerLogo.src = imageSrc;
+}
+
+
+function updateCityIcon() {
+    const hour = new Date().getHours();
+    const footer = document.querySelector("#footer");
+
+    if (!footer) return;
+
+    let icon = "🏙️"; // default: daytime
+
+    if (hour >= 5 && hour < 10) {
+        icon = "🌇"; // sunrise
+    } else if (hour >= 10 && hour < 19) {
+        icon = "🏙️"; // daytime
+    } else if (hour >= 19 && hour < 21) {
+        icon = "🌆"; // dusk
+    } else {
+        icon = "🌃"; // night
+    }
+
+    footer.innerHTML = footer.innerHTML.replace(/🌇|🌆|🌃|🏙️/g, icon);
+}
+
 
 export function renderWithTemplate(template, parentElement, callback) {
     parentElement.innerHTML = template;
@@ -29,11 +66,17 @@ export async function loadTemplate(path) {
 export async function loadHeaderFooter() {
     const headerTemplate = await loadTemplate("./header.html");
     const headerElement = document.querySelector("#main-header");
-    renderWithTemplate(headerTemplate, headerElement);
+    renderWithTemplate(headerTemplate, headerElement, () => {
+        updateHeaderImage();
+    });
 
     const footerTemplate = await loadTemplate("./footer.html");
     const footerElement = document.querySelector("#footer");
-    renderWithTemplate(footerTemplate, footerElement, updateCopyrightYear);
+    renderWithTemplate(footerTemplate, footerElement, () => {
+        updateCopyrightYear();
+        updateCityIcon();
+    });
+    
 }
 
 
@@ -50,11 +93,10 @@ export function generateCityDetails(cityData, isStartCity = true, otherCityData 
         <p>Country: ${cityData.country}</p>
         <p>Population: ${cityData.population ? cityData.population.toLocaleString() : "N/A"}</p>
         <p>Distance between cities: ${distance}</p>
-        <img src="${flagPath}" alt="${cityData.country} flag" class="flag">
-        <div class="${isStartCity ? "start-city-wx" : "end-city-wx"}"></div>
-    `;
+        <img src="${flagPath}" alt="${cityData.country}" class="flag">
+        <div class="${isStartCity ? "start-city-wx" : "end-city-wx"}"></div>`;
 
-    // **Return the generated HTML string**
+    // **Return the generated HTML string** <img src="${flagPath}" alt="${cityData.country} flag" class="flag flag-wave">
     return detailsHtml;
 }
 
