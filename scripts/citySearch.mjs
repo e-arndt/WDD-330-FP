@@ -39,7 +39,7 @@ export async function getCityData(city, countryCode = "", stateCode = null) {
             (!stateCode || entry.regionCode === stateCode)
         );
 
-        // console.log("Filtered Cities Before Sorting:", JSON.stringify(filteredCities, null, 2));
+        console.log("Filtered Cities Before Sorting:", JSON.stringify(filteredCities, null, 2));
 
         // Sort the filtered cities by population (highest first) and select the top result.
         const matchedCity = filteredCities.length

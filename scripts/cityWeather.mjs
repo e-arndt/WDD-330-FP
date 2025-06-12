@@ -24,8 +24,12 @@ export async function getCityWeather(cityData) {
             city: cityData.city,  // Pass original city name from cityData
             country: cityData.country,  // Preserve the correct country info
             condition: data.current.condition.text,
-            tempC: data.current.temp_c,
+            humidity: data.current.humidity,
             tempF: data.current.temp_f,
+            windDir: data.current.wind_dir,
+            windMPH: data.current.wind_mph,
+            pressure: data.current.pressure_in,
+            rain: data.current.precip_in,
             icon: `https:${data.current.condition.icon}`
         };
     } catch (error) {
@@ -80,9 +84,12 @@ export async function generateCityWeather(cityData, isStartCity = true, retryCou
         // Insert weather data into the UI
         weatherDiv.innerHTML = `
             <p>Current Conditions: ${weatherData.condition}</p>
-            <p>Temperature: ${weatherData.tempC}°C / ${weatherData.tempF}°F</p>
-            <img src="${weatherData.icon}" alt="${weatherData.condition}">
-        `;
+            <p>Atmospheric Pressure: ${weatherData.pressure}<span style="display: inline-block; width: 1.2rem;"></span>Rainfall ${weatherData.rain} in</p>
+            <p>Humidity: ${weatherData.humidity}%<span style="display: inline-block; width: 1.2rem;"></span>Temperature: ${weatherData.tempF}°F</p>
+            <p>Wind: ${weatherData.windDir}<span style="display: inline-block; width: .25rem;"></span>at ${weatherData.windMPH} mph</p>
+            <img src="${weatherData.icon}" alt="${weatherData.condition}">`;
+        
+        
     } catch (error) {
         console.error("Error fetching weather data:", error);
         weatherDiv.innerHTML = `<p>Weather data unavailable.</p>`;

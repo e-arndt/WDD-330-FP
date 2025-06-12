@@ -130,10 +130,6 @@ async function handleStartCitySelection() {
 }
 
 
-
-
-
-
 async function handleEndCitySelection() {
     const endCitySelect = document.getElementById("end-city");
     const selectedValue = endCitySelect.value;
@@ -173,26 +169,6 @@ async function handleEndCitySelection() {
 }
 
 
-
-
-
-
-// Attach event listeners for city selection (AFTER populateCitiesDropdowns runs)
-document.getElementById("search-start-city").addEventListener("input", async (event) => {
-    const searchValue = event.target.value.trim();
-    if (!searchValue.length) return;
-
-    const cities = await getCityData(searchValue);
-    console.log("API Response:", cities); // Check if cities array has data
-
-    if (cities && cities.length > 0) {
-        chooseCityDropdown("start-multi-result", cities);
-    } else {
-        console.error("No cities found for:", searchValue);
-    }
-});
-
-
 document.getElementById("random-start-city").addEventListener("click", () => {
     getRandomCity("start-city-result"); // Display results in start city section
 });
@@ -200,17 +176,4 @@ document.getElementById("random-start-city").addEventListener("click", () => {
 document.getElementById("random-end-city").addEventListener("click", () => {
     getRandomCity("end-city-result"); // Display results in end city section
 });
-
-
-document.getElementById("search-end-city").addEventListener("input", async (event) => {
-    const searchValue = event.target.value.trim();
-    if (!searchValue.length) return;
-
-    const cities = await getCityData(searchValue);
-
-    if (cities) {
-        chooseCityDropdown("end-multi-result", cities);
-    }
-});
-
 

@@ -20,9 +20,9 @@ export async function getRandomCity(targetElementId) {
         const randomIndex = Math.floor(Math.random() * cities.length);
         const randomCity = cities[randomIndex];
 
-        const isStartCity = targetElementId.includes("start"); // ✅ Declare first
+        const isStartCity = targetElementId.includes("start"); // Declare first
 
-        console.log(isStartCity ? `Start City Random: ${randomCity.city}` : `End City Random: ${randomCity.city}`); // ✅ Log AFTER declaration
+        console.log(isStartCity ? `Start City Random: ${randomCity.city}` : `End City Random: ${randomCity.city}`); // Log AFTER declaration
 
         const cityData = await cityCache(randomCity.city, randomCity.countryCode);
         if (!cityData) {
