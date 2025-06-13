@@ -7,7 +7,7 @@ export async function getCityWeather(cityData) {
     }
 
     const apiKey = "f1999393ce294ea3bf8185645252005";
-    const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cityData.latitude},${cityData.longitude}`;
+    const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cityData.latitude},${cityData.longitude}`;
 
     console.log(`Attempting API call: ${url}`);
 
