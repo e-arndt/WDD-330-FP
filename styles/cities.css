@@ -158,6 +158,14 @@ body {
     margin-right: auto;
 }
 
+.visually-hidden {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 /* Specific styling for search inputs */
 #search-start-city,
 #search-end-city {

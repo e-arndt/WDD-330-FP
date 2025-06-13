@@ -50,7 +50,7 @@ function updateCityIcon() {
 export function renderWithTemplate(template, parentElement, callback) {
     parentElement.innerHTML = template;
     if (callback) {
-        callback(); // Ensure the callback runs after the footer loads
+        callback(); // Callback runs after the footer loads
     }
 }
 
@@ -96,7 +96,7 @@ export function generateCityDetails(cityData, isStartCity = true, otherCityData 
         <img src="${flagPath}" alt="${cityData.country}" class="flag">
         <div class="${isStartCity ? "start-city-wx" : "end-city-wx"}"></div>`;
 
-    // **Return the generated HTML string** <img src="${flagPath}" alt="${cityData.country} flag" class="flag flag-wave">
+    // **Return the generated HTML string**
     return detailsHtml;
 }
 

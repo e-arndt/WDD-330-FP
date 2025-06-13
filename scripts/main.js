@@ -1,11 +1,8 @@
 import { loadHeaderFooter } from "./utils.mjs";
-import { getCityData } from "./citySearch.mjs"; // Import city search functionality
 import { getRandomCity } from "./random.mjs";
 import { generateCityDetails } from "./utils.mjs";
 import { generateCityWeather } from "./cityWeather.mjs";
 import { cityCache } from "./cache.mjs";
-import { weatherCache } from "./cache.mjs";
-import { determineDistance } from "./utils.mjs";
 
 
 
@@ -40,13 +37,13 @@ function chooseCityDropdown(dropdownId, cities) {
         dropdown.appendChild(option);
     });
 
-    // Automatically select the first city (optional)
+    // Automatically select the first city
     dropdown.selectedIndex = 0;
 }
 
 
 
-// Function to populate dropdowns with city data from JSON (UNCHANGED)
+// Function to populate dropdowns with city data from JSON file
 async function populateCitiesDropdowns() {
     try {
         const response = await fetch("./json/popular-cities.json");

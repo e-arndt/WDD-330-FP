@@ -19,7 +19,7 @@ export async function getCityWeather(cityData) {
         const data = await response.json();
         console.log("Weather API response:", data);
 
-        // **Ensure we return the correct city and country associated with lat/lon**
+        // **Return the correct city and country associated with lat/lon**
         return {
             city: cityData.city,  // Pass original city name from cityData
             country: cityData.country,  // Preserve the correct country info
@@ -56,7 +56,7 @@ export async function generateCityWeather(cityData, isStartCity = true, retryCou
 
     let weatherDiv = document.querySelector(`.${isStartCity ? "start-city-wx" : "end-city-wx"}`);
 
-    // ✅ Ensure weatherDiv exists before proceeding
+    // Make sure weatherDiv exists before proceeding
     if (!weatherDiv) {
         if (retryCount < 5) {
             console.warn("Weather div not found, retrying...");

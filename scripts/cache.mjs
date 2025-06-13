@@ -38,7 +38,7 @@ export async function cityCache(cityName, countryCode, stateCode = null) {
 
 
 export async function weatherCache(cityData) {
-    console.log("Received cityData in weatherCache:", JSON.stringify(cityData, null, 2)); //Debug log
+    // console.log("Received cityData in weatherCache:", JSON.stringify(cityData, null, 2));
 
     if (!cityData || !cityData.city || !cityData.latitude || !cityData.longitude) {
         console.warn("Skipping weatherCache—invalid city data provided");
