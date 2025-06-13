@@ -84,7 +84,7 @@ export function generateCityDetails(cityData, isStartCity = true, otherCityData 
     if (!cityData) return `<p>City data not found.</p>`;
 
     const stateOrRegion = cityData.countryCode === "US" ? cityData.state : "";
-    const flagPath = `/images/flags/${cityData.countryCode.toLowerCase()}.svg`;
+    const flagPath = `./images/flags/${cityData.countryCode.toLowerCase()}.svg`;
     const distance = otherCityData ? determineDistance(cityData, otherCityData) : "0 miles";
 
     const detailsHtml = `
