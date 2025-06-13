@@ -54,12 +54,12 @@ async function populateCitiesDropdowns() {
 
         const defaultOptionStart = document.createElement("option");
         defaultOptionStart.value = "";
-        defaultOptionStart.textContent = "-- Choose a city --";
+        defaultOptionStart.textContent = "Choose a city";
         startDropdown.appendChild(defaultOptionStart);
 
         const defaultOptionEnd = document.createElement("option");
         defaultOptionEnd.value = "";
-        defaultOptionEnd.textContent = "-- Choose a city --";
+        defaultOptionEnd.textContent = "Choose a city";
         endDropdown.appendChild(defaultOptionEnd);
 
         const sortedCities = [...data.popularCities.USA, ...data.popularCities.International]
