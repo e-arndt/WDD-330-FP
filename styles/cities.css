@@ -60,6 +60,11 @@ body {
 
 .logo:hover {
     transform: scale(1.1); /* Slight zoom */
+    box-shadow:
+            8px 8px 15px rgba(216, 1, 1, 0.40), /* bottom-right */
+            -8px -8px 15px rgba(216, 1, 1, 0.40), /* top-left */
+            -8px 8px 15px rgba(216, 1, 1, 0.40), /* bottom-left */
+            8px -8px 15px rgba(216, 1, 1, 0.40); /* top-right */
 }
 
 #main-header {
@@ -229,6 +234,17 @@ img.flag {
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
 }
 
+.start-city-result img.flag:hover,
+.end-city-result img.flag:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    box-shadow:
+        8px 8px 15px rgba(216, 1, 1, 0.40),/* bottom-right */
+        -8px -8px 15px rgba(216, 1, 1, 0.40),/* top-left */
+        -8px 8px 15px rgba(216, 1, 1, 0.40),/* bottom-left */
+        8px -8px 15px rgba(216, 1, 1, 0.40);/* top-right */
+}
+
 
 /* Ensure weather section aligns inside the city result boxes */
 .start-city-wx,
@@ -242,6 +258,21 @@ img.flag {
     margin-top: 2px;
     max-width: auto;
     height: 120px;
+}
+
+@keyframes jiggle-rotate {
+    0% {transform: translateX(0) rotate(0deg);}
+    25% {transform: translateX(-4px) rotate(-5deg);}
+    50% {transform: translateX(4px) rotate(5deg);}
+    75% {transform: translateX(-4px) rotate(-5deg);}
+    100% {transform: translateX(0) rotate(0deg);}
+}
+
+.start-city-wx img:hover,
+.end-city-wx img:hover {
+    animation: jiggle-rotate 0.35s ease;
+    animation-iteration-count: 1;
+    transform: scale(1.1);
 }
 
 #location-info {
