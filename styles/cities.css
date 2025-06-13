@@ -61,10 +61,10 @@ body {
 .logo:hover {
     transform: scale(1.1); /* Slight zoom */
     box-shadow:
-            8px 8px 15px rgba(216, 1, 1, 0.40), /* bottom-right */
-            -8px -8px 15px rgba(216, 1, 1, 0.40), /* top-left */
-            -8px 8px 15px rgba(216, 1, 1, 0.40), /* bottom-left */
-            8px -8px 15px rgba(216, 1, 1, 0.40); /* top-right */
+            8px 8px 15px rgba(255, 224, 25, 0.5), /* bottom-right */
+            -8px -8px 15px rgba(255, 224, 25, 0.5), /* top-left */
+            -8px 8px 15px rgba(255, 224, 25, 0.5), /* bottom-left */
+            8px -8px 15px rgba(255, 224, 25, 0.5); /* top-right */
 }
 
 #main-header {
