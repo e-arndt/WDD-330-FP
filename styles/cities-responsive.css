@@ -147,6 +147,12 @@
         font-size: 1rem;
     }
 
+    .start-city-wx p,
+    .end-city-wx p {
+        text-align: center;
+        font-size: .9rem;
+    }
+
     #footer {
         font-size: .7rem;
     }
