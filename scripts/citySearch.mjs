@@ -1,11 +1,11 @@
-// Exported function for fetching city data
+// Fetches city data from an external API based on city name, country, and optional state code
 export async function getCityData(city, countryCode = "", stateCode = null) {
     city = city.trim(); // Prevent unnecessary API calls with empty spaces
     if (!city.length) return []; // Ensure valid input
 
     const apiKey = "2f3e9979b7mshdc0da415a1c7fdcp1c71ffjsn4d8ada5f3148";
 
-    // Base API URL
+    // Constructs the base API URL for city lookup
     let url = `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?namePrefix=${city}&countryIds=${countryCode}`;
 
     // **Include state code in query when applicable**
@@ -31,8 +31,7 @@ export async function getCityData(city, countryCode = "", stateCode = null) {
             return null;
         }
 
-    
-        // Filter cities by name and state (if provided)
+        // Filters results to ensure they are valid city entries
         const filteredCities = data.data.filter(entry =>
             entry.type === "CITY" &&
             entry.city.toLowerCase().includes(city.toLowerCase()) &&
@@ -41,21 +40,20 @@ export async function getCityData(city, countryCode = "", stateCode = null) {
 
         // console.log("Filtered Cities Before Sorting:", JSON.stringify(filteredCities, null, 2));
 
-        // Sort the filtered cities by population (highest first) and select the top result.
+        // Sorts the filtered cities by population (highest first) and selects the most relevant match
         const matchedCity = filteredCities.length
             ? filteredCities.sort((a, b) => (b.population || 0) - (a.population || 0))[0]
             : null;
-
 
         if (!matchedCity.latitude || !matchedCity.longitude) {
             console.error("Latitude/Longitude missing from matched city data.");
             return {};
         }
 
-            
         console.log("Latitude/Longitude Verification:", matchedCity.latitude, matchedCity.longitude);
         console.log("Matched City Data:", matchedCity);
 
+        // Returns key city data including name, location, and population
         return {
             city: matchedCity.city,
             state: matchedCity.regionCode,
@@ -65,12 +63,9 @@ export async function getCityData(city, countryCode = "", stateCode = null) {
             longitude: matchedCity.longitude,
             population: matchedCity.population || "N/A"
         };
-        
 
     } catch (error) {
         console.error("API fetch error:", error);
         return null;
     }
 }
-
-

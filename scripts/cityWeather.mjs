@@ -1,5 +1,6 @@
 import { weatherCache } from "./cache.mjs";
 
+/* Fetches current weather data for a given city using latitude and longitude */
 export async function getCityWeather(cityData) {
     if (!cityData || !cityData.latitude || !cityData.longitude) {
         console.error(`Invalid city data passed to getCityWeather:`, cityData);
@@ -19,7 +20,7 @@ export async function getCityWeather(cityData) {
         const data = await response.json();
         console.log("Weather API response:", data);
 
-        // **Return the correct city and country associated with lat/lon**
+        // Returns relevant weather details including temperature, condition, and wind speed
         return {
             city: cityData.city,  // Pass original city name from cityData
             country: cityData.country,  // Preserve the correct country info
@@ -38,9 +39,7 @@ export async function getCityWeather(cityData) {
     }
 }
 
-
-
-
+/* Retrieves and displays weather data for a selected city, with caching support */
 export async function generateCityWeather(cityData, isStartCity = true, retryCount = 0) {
     if (!cityData || !cityData.latitude || !cityData.longitude) {
         console.warn(`Skipping weather retrieval—lat/lon missing for ${cityData?.city}`);
@@ -56,7 +55,7 @@ export async function generateCityWeather(cityData, isStartCity = true, retryCou
 
     let weatherDiv = document.querySelector(`.${isStartCity ? "start-city-wx" : "end-city-wx"}`);
 
-    // Make sure weatherDiv exists before proceeding
+    // Ensures the weather display element is available before proceeding, using a short delay and retry.
     if (!weatherDiv) {
         if (retryCount < 5) {
             console.warn("Weather div not found, retrying...");
@@ -81,19 +80,16 @@ export async function generateCityWeather(cityData, isStartCity = true, retryCou
             return;
         }
 
-        // Insert weather data into the UI
+        // Updates the UI with retrieved weather conditions
         weatherDiv.innerHTML = `
             <p>Current Conditions: ${weatherData.condition}</p>
             <p>Atmospheric Pressure: ${weatherData.pressure}<span style="display: inline-block; width: 1.2rem;"></span>Rainfall ${weatherData.rain} in</p>
             <p>Humidity: ${weatherData.humidity}%<span style="display: inline-block; width: 1.2rem;"></span>Temperature: ${weatherData.tempF}°F</p>
             <p>Wind: ${weatherData.windDir}<span style="display: inline-block; width: .25rem;"></span>at ${weatherData.windMPH} mph</p>
             <img src="${weatherData.icon}" alt="${weatherData.condition}">`;
-        
-        
+
     } catch (error) {
         console.error("Error fetching weather data:", error);
         weatherDiv.innerHTML = `<p>Weather data unavailable.</p>`;
     }
 }
-
-

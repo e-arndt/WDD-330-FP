@@ -1,7 +1,7 @@
 import { getCityData } from "./citySearch.mjs";
 import { getCityWeather } from "./cityWeather.mjs";
 
-
+/* Retrieves city data from local storage or fetches fresh data if expired(over 8 days old) */
 export async function cityCache(cityName, countryCode, stateCode = null) {
     console.log(`Fetching city from cache vs fresh data: ${cityName} (${countryCode})`);
 
@@ -14,6 +14,7 @@ export async function cityCache(cityName, countryCode, stateCode = null) {
         const timeElapsed = Date.now() - cachedData.timestamp;
         const eightDaysInMs = 8 * 24 * 60 * 60 * 1000;
 
+        // Use cached data if it's still valid and contains necessary coordinates
         if (timeElapsed < eightDaysInMs && cachedData.cityData.latitude && cachedData.cityData.longitude) {
             console.log(`Using cached city data for: ${cityName}`);
             return cachedData.cityData;
@@ -34,11 +35,9 @@ export async function cityCache(cityName, countryCode, stateCode = null) {
     return null;
 }
 
-
-
-
+/* Retrieves weather data from session storage or fetches fresh data if expired(over 1 hour old) */
 export async function weatherCache(cityData) {
-    // console.log("Received cityData in weatherCache:", JSON.stringify(cityData, null, 2));
+    // for debugging.  console.log("Received cityData in weatherCache:", JSON.stringify(cityData, null, 2));
 
     if (!cityData || !cityData.city || !cityData.latitude || !cityData.longitude) {
         console.warn("Skipping weatherCache—invalid city data provided");
@@ -51,8 +50,7 @@ export async function weatherCache(cityData) {
     const oneHourInMs = 60 * 60 * 1000;
     const needsRefresh = !cachedData || (Date.now() - cachedData.timestamp) >= oneHourInMs;
 
-    
-
+    // Determine if fresh weather data is needed
     if (needsRefresh) {
         if (!cachedData) {
             console.log(`No cached weather data found for ${cityData.city}—fetching fresh data.`);
@@ -74,5 +72,3 @@ export async function weatherCache(cityData) {
 
     return cachedData.weatherData;
 }
-
-

@@ -1,7 +1,7 @@
 import { weatherCache } from "./cache.mjs";
 import { generateCityWeather } from "./cityWeather.mjs";
 
-
+/* Updates the copyright year dynamically in the footer */
 function updateCopyrightYear() {
     const yearElement = document.querySelector("#copyright-year");
     if (yearElement) {
@@ -9,6 +9,7 @@ function updateCopyrightYear() {
     }
 }
 
+/* Sets the header image based on the time of day */
 function updateHeaderImage() {
     const hour = new Date().getHours();
     const headerLogo = document.querySelector(".logo");
@@ -24,7 +25,7 @@ function updateHeaderImage() {
     headerLogo.src = imageSrc;
 }
 
-
+/* Updates the city icon in the footer based on the current time */
 function updateCityIcon() {
     const hour = new Date().getHours();
     const footer = document.querySelector("#footer");
@@ -46,7 +47,7 @@ function updateCityIcon() {
     footer.innerHTML = footer.innerHTML.replace(/🌇|🌆|🌃|🏙️/g, icon);
 }
 
-
+/* Renders an HTML template inside a specified parent element */
 export function renderWithTemplate(template, parentElement, callback) {
     parentElement.innerHTML = template;
     if (callback) {
@@ -54,15 +55,14 @@ export function renderWithTemplate(template, parentElement, callback) {
     }
 }
 
-
-
+/* Loads an HTML template from a given file path */
 export async function loadTemplate(path) {
     const res = await fetch(path);
     const template = await res.text();
     return template;
-  }
+}
 
-
+/* Loads and inserts header/footer templates, updating relevant dynamic elements */
 export async function loadHeaderFooter() {
     const headerTemplate = await loadTemplate("./header.html");
     const headerElement = document.querySelector("#main-header");
@@ -76,10 +76,9 @@ export async function loadHeaderFooter() {
         updateCopyrightYear();
         updateCityIcon();
     });
-    
 }
 
-
+/* Generates HTML for city details, including name, population, flag, and distance */
 export function generateCityDetails(cityData, isStartCity = true, otherCityData = null) {
     if (!cityData) return `<p>City data not found.</p>`;
 
@@ -96,10 +95,10 @@ export function generateCityDetails(cityData, isStartCity = true, otherCityData 
         <img src="${flagPath}" alt="${cityData.country}" class="flag">
         <div class="${isStartCity ? "start-city-wx" : "end-city-wx"}"></div>`;
 
-    // **Return the generated HTML string**
     return detailsHtml;
 }
 
+/* Updates weather data for a selected city */
 export function updateCityWeather(cityData, isStartCity) {
     setTimeout(async () => {
         const cachedWeather = await weatherCache(cityData.city);
@@ -111,9 +110,7 @@ export function updateCityWeather(cityData, isStartCity) {
     }, 100);
 }
 
-
-
-
+/* Calculates the distance between two cities using the Haversine formula */
 export function determineDistance(cityData1, cityData2) {
     if (!cityData1 || !cityData2) return "0 miles"; // If only one city is selected
 
@@ -136,5 +133,3 @@ export function determineDistance(cityData1, cityData2) {
 
     return `${distance.toFixed(2)} miles`;
 }
-
-

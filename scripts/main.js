@@ -4,26 +4,23 @@ import { generateCityDetails } from "./utils.mjs";
 import { generateCityWeather } from "./cityWeather.mjs";
 import { cityCache } from "./cache.mjs";
 
-
-
-// Run on page load 
+// Runs when the page loads, inserting header/footer and setting up event listeners
 loadHeaderFooter();
 populateCitiesDropdowns().then(() => {
     document.getElementById("start-city").addEventListener("change", handleStartCitySelection);
     document.getElementById("end-city").addEventListener("change", handleEndCitySelection);
 
-    // Ensure weather updates after city selection
+    // Ensures weather updates after city selection
     setTimeout(() => {
         if (startCityData) generateCityWeather(startCityData, true);
         if (endCityData) generateCityWeather(endCityData, false);
     }, 100);
-    
 });
 
-
+/* Populates a given dropdown with cities, automatically selecting the first match */
 function chooseCityDropdown(dropdownId, cities) {
     const dropdown = document.getElementById(dropdownId);
-    dropdown.innerHTML = ""; // Clear previous results
+    dropdown.innerHTML = ""; // Clears previous results
 
     if (!cities || cities.length === 0) {
         dropdown.innerHTML = `<option value="">No matches found</option>`;
@@ -37,13 +34,10 @@ function chooseCityDropdown(dropdownId, cities) {
         dropdown.appendChild(option);
     });
 
-    // Automatically select the first city
-    dropdown.selectedIndex = 0;
+    dropdown.selectedIndex = 0; // Automatically selects the first city
 }
 
-
-
-// Function to populate dropdowns with city data from JSON file
+/* Loads city data from a JSON file and populates dropdowns */
 async function populateCitiesDropdowns() {
     try {
         const response = await fetch("./json/popular-cities.json");
@@ -52,6 +46,7 @@ async function populateCitiesDropdowns() {
         const startDropdown = document.getElementById("start-city");
         const endDropdown = document.getElementById("end-city");
 
+        // Adds default "Choose a City" option
         const defaultOptionStart = document.createElement("option");
         defaultOptionStart.value = "";
         defaultOptionStart.textContent = "Choose a City";
@@ -62,6 +57,7 @@ async function populateCitiesDropdowns() {
         defaultOptionEnd.textContent = "Choose a City";
         endDropdown.appendChild(defaultOptionEnd);
 
+        // Sorts cities alphabetically before inserting them into dropdowns
         const sortedCities = [...data.popularCities.USA, ...data.popularCities.International]
             .sort((a, b) => a.city.localeCompare(b.city));
 
@@ -83,36 +79,33 @@ async function populateCitiesDropdowns() {
     }
 }
 
-
-
 let startCityData = null;
 let endCityData = null;
 
+/* Handles selection of a starting city and updates session storage */
 async function handleStartCitySelection() {
     const startCitySelect = document.getElementById("start-city");
     const selectedValue = startCitySelect.value;
     if (!selectedValue) return;
 
     const [selectedCity, selectedCountryCode, selectedStateCode] = selectedValue.split("|");
-
-    // Ensure stateCode is correctly handled for international cities
     const safeStateCode = selectedStateCode && selectedStateCode !== "null" ? selectedStateCode : null;
 
     console.log(`Previous Start City:`, startCityData);
     console.log(`Previous End City:`, endCityData);
 
+    // Removes outdated cache and fetches new city data
     localStorage.removeItem(`${selectedCity}-${selectedCountryCode}-${safeStateCode || "NA"}`);
     startCityData = await cityCache(selectedCity, selectedCountryCode, safeStateCode);
 
-    // Write the new start city data to session storage
+    // Saves updated start city data in session storage
     sessionStorage.setItem("startCityData", JSON.stringify(startCityData));
 
-    // Load the end city data from session storage (if any)
+    // Loads stored end city data if available
     const storedEnd = sessionStorage.getItem("endCityData");
     endCityData = storedEnd ? JSON.parse(storedEnd) : null;
 
     document.getElementById("start-city").selectedIndex = 0;
-
 
     console.log(`Updated Start City:`, startCityData);
     console.log(`Updated End City:`, endCityData);
@@ -126,32 +119,30 @@ async function handleStartCitySelection() {
     if (endCityData) generateCityWeather(endCityData, false);
 }
 
-
+/* Handles selection of an ending city and updates session storage */
 async function handleEndCitySelection() {
     const endCitySelect = document.getElementById("end-city");
     const selectedValue = endCitySelect.value;
     if (!selectedValue) return;
 
     const [selectedCity, selectedCountryCode, selectedStateCode] = selectedValue.split("|");
-
-    // Ensure stateCode is correctly handled
     const safeStateCode = selectedStateCode && selectedStateCode !== "null" ? selectedStateCode : null;
 
     console.log(`Previous Start City:`, startCityData);
     console.log(`Previous End City:`, endCityData);
 
+    // Removes outdated cache and fetches new city data
     localStorage.removeItem(`${selectedCity}-${selectedCountryCode}-${safeStateCode || "NA"}`);
     endCityData = await cityCache(selectedCity, selectedCountryCode, safeStateCode);
 
-    // Write the new end city data to session storage
+    // Saves updated end city data in session storage
     sessionStorage.setItem("endCityData", JSON.stringify(endCityData));
 
-    // Load the start city data from session storage (if any)
+    // Loads stored start city data if available
     const storedStart = sessionStorage.getItem("startCityData");
     startCityData = storedStart ? JSON.parse(storedStart) : null;
 
     document.getElementById("end-city").selectedIndex = 0;
-
 
     console.log(`Updated Start City:`, startCityData);
     console.log(`Updated End City:`, endCityData);
@@ -165,12 +156,11 @@ async function handleEndCitySelection() {
     if (startCityData) generateCityWeather(startCityData, true);
 }
 
-
+// Event listeners for selecting random cities
 document.getElementById("random-start-city").addEventListener("click", () => {
-    getRandomCity("start-city-result"); // Display results in start city section
+    getRandomCity("start-city-result"); // Displays results in start city section
 });
 
 document.getElementById("random-end-city").addEventListener("click", () => {
-    getRandomCity("end-city-result"); // Display results in end city section
+    getRandomCity("end-city-result"); // Displays results in end city section
 });
-
