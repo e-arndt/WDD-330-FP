@@ -31,7 +31,7 @@ export async function getCityData(city, countryCode = "", stateCode = null) {
             return null;
         }
 
-        // Filters results to ensure they are valid city entries
+        // Filters results to select the city that best matches the desired result
         const filteredCities = data.data.filter(entry =>
             entry.type === "CITY" &&
             entry.city.toLowerCase().includes(city.toLowerCase()) &&
